@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./hg/styles/tokyo-night-dark.min.css" />
-    <!-- <link rel="stylesheet" href="./s.css"/> -->
-    <title>Document</title>
+    <title>compiler JS</title>
   </head>
   <body>
-    <!-- <form class="form__container" method="get"> -->
-    <!-- <input class="form__input" id="Input" type="text" /> -->
     <div class="code">
-      <div class="code__container">
-        <!-- <textarea id="Input" class="code__textarea" style="width: 100%; height: 100%;"></textarea> -->
-        <pre><code id="Input" class="nohighlight code__input" contenteditable="true"></code></pre>
-        <pre><code id="CodeOutput" class="hljs language-javascript code__output">//type your code here</code></pre>
-      </div>
-      <button id="Sub" class="code__run-button">RUN CODE</button>
-      <div class="code__output-container">
-        <label for="Console">console:</label>
-        <output class="form__output" id="Console"></output>
+      <div class="code__wrapper">
+        <div class="code__input-container">
+          <pre><code id="Input" class="nohighlight code__input" contenteditable="true"></code></pre>
+          <pre><code id="CodeOutput" class="hljs language-javascript code__output">//type your code here</code></pre>
+        </div>
+        <div class="code__run-output-wrapper">
+          <button id="Sub" class="code__run-button">
+            <h2 class="code__run-button-header">RUN CODE</h2>
+          </button>
+          <div class="code__output-container">
+            <output class="form__output" id="Console"></output>
+          </div>
+        </div>
       </div>
     </div>
   </body>

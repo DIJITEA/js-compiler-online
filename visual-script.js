@@ -10,26 +10,26 @@ let input = document.getElementById("Input");
 let submitButton = document.getElementById("Sub");
 let codeOutput = document.getElementById("CodeOutput");
 
-
 input.addEventListener("input", updateValue);
 input.addEventListener("click", updateValue);
 
 function updateValue() {
-
-
+  input.removeAttribute('style');
   codeOutput.innerHTML = input.outerText;
   hljs.highlightAll();
-
+  // need 2 fix
   let lastDiv = input.querySelectorAll("div:last-child")[0];
-
-
   if (lastDiv) {
-    if (!(lastDiv.innerHTML == lastDiv.outerText) && lastDiv.innerHTML.length > 4) {
-        lastDiv.removeChild(lastDiv.querySelector("br"));
-       codeOutput.innerHTML = input.outerText;
-       hljs.highlightAll();
-     }
-   }
+    if (
+      !(lastDiv.innerHTML == lastDiv.outerText) &&
+      lastDiv.innerHTML.length > 4
+    ) {
+      lastDiv.removeChild(lastDiv.querySelector("br"));
+      codeOutput.innerHTML = input.outerText;
+      hljs.highlightAll();
+    }
+  }
+  // ----------
 }
 
 hljs.highlightAll();
@@ -39,16 +39,16 @@ submitButton.addEventListener("click", function (e) {
 });
 
 function createDiv(value) {
-  console.log(console.logs)
+  console.log(console.logs);
   eval(value);
   output.value = console.logs.join(",").split(",").join(" ");
 }
 
-window.onerror = function(error, url, line) {
-  output.value = console.logs.join(",").split(",").join("") + error + line
-  console.log('-----')
-  console.log(error)
-  console.log(url)
-  console.log(line)
-  console.log('-----')
+window.onerror = function (error, url, line) {
+  output.value = console.logs.join(",").split(",").join("") + error + line;
+  console.log("-----");
+  console.log(error);
+  console.log(url);
+  console.log(line);
+  console.log("-----");
 };
