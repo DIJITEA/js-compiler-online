@@ -8,6 +8,8 @@ console.log = function () {
 let output = document.getElementById("Console");
 let input = document.getElementById("Input");
 let submitButton = document.getElementById("Sub");
+let coudeOutputDivContainer = document.querySelector(".code__output-container")
+// coudeOutputDivContainer.style.background
 let codeOutput = document.getElementById("CodeOutput");
 
 input.addEventListener("input", updateValue);
@@ -35,13 +37,18 @@ function updateValue() {
 hljs.highlightAll();
 
 submitButton.addEventListener("click", function (e) {
-  createDiv(input.outerText);
+  createOutputDiv(input.outerText);
 });
 
-function createDiv(value) {
-  console.log(console.logs);
+function createOutputDiv(value) {
+  // console.log(console.logs.join(",").split(","));
   eval(value);
-  output.value = console.logs.join(",").split(",").join(" ");
+  let nOutput = document.createElement("output")
+  nOutput.classList.add('code__console-output')
+  nOutput.value = console.logs.join(",").split(",").join(" ");
+  console.logs = []
+  coudeOutputDivContainer.appendChild(nOutput)
+  // output.value = console.logs.join(",").split(",").join(" ");
 }
 
 window.onerror = function (error, url, line) {
