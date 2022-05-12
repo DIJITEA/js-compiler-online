@@ -8,29 +8,32 @@ console.log = function () {
 let output = document.getElementById("Console");
 let input = document.getElementById("Input");
 let submitButton = document.getElementById("Sub");
-let coudeOutputDivContainer = document.querySelector(".code__output-container")
+let coudeOutputDivContainer = document.querySelector(".code__output-container");
 // coudeOutputDivContainer.style.background
 let codeOutput = document.getElementById("CodeOutput");
 
-input.addEventListener("input", updateValue);
-input.addEventListener("click", updateValue);
+input.addEventListener("input", (e) => updateValue(e));
+input.addEventListener("click", (e) => updateValue(e));
 
-function updateValue() {
-  input.removeAttribute('style');
+function updateValue(e) {
+  input.removeAttribute("style");
   codeOutput.innerHTML = input.outerText;
   hljs.highlightAll();
   // need 2 fix
-  let lastDiv = input.querySelectorAll("div:last-child")[0];
-  if (lastDiv) {
-    if (
-      !(lastDiv.innerHTML == lastDiv.outerText) &&
-      lastDiv.innerHTML.length > 4
-    ) {
-      lastDiv.removeChild(lastDiv.querySelector("br"));
-      codeOutput.innerHTML = input.outerText;
-      hljs.highlightAll();
-    }
-  }
+  // if (e.inputType == "deleteContentBackward") {
+  //   console.log(e.inputType)
+  //   let lastDiv = input.querySelectorAll("div:last-child")[0];
+  //   if (lastDiv) {
+  //     if (
+  //       !(lastDiv.innerHTML == lastDiv.outerText) &&
+  //       lastDiv.innerHTML.length > 4
+  //     ) {
+  //       lastDiv.removeChild(lastDiv.querySelector("br"));
+  //       codeOutput.innerHTML = input.outerText;
+  //       hljs.highlightAll();
+  //     }
+  //   }
+  // }
   // ----------
 }
 
@@ -43,11 +46,11 @@ submitButton.addEventListener("click", function (e) {
 function createOutputDiv(value) {
   // console.log(console.logs.join(",").split(","));
   eval(value);
-  let nOutput = document.createElement("output")
-  nOutput.classList.add('code__console-output')
+  let nOutput = document.createElement("output");
+  nOutput.classList.add("code__console-output");
   nOutput.value = console.logs.join(",").split(",").join(" ");
-  console.logs = []
-  coudeOutputDivContainer.appendChild(nOutput)
+  console.logs = [];
+  coudeOutputDivContainer.appendChild(nOutput);
   // output.value = console.logs.join(",").split(",").join(" ");
 }
 
