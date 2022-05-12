@@ -116,14 +116,26 @@ body {
     max-width: 150px;
     max-height: 150px;
     margin-right: 15px;
-    border: 1px solid rgb(125 207 255);
-    color: rgb(247 118 142);
     background-color: rgb(26 27 38);
+    border: 1px solid #565f89;
+}
+
+.code__run-button--active {
+    /* border: 1px solid rgb(125 207 255); */
+    border-color: rgb(125 207 255);
+    /* color: rgb(247 118 142); */
     box-shadow: 0 0 8px 1px rgb(125 207 255), inset 0 0 8px 1px rgb(125 207 255);
+    transition: border-color 0.5s, box-shadow 3s ;
 }
 
 .code__run-button-header {
+    color: #565f89;
+}
+
+.code__run-button-header--active {
+    color: rgb(247 118 142);
     text-shadow: 0 0 10px #ff0000;
+    transition: color 0.5s, text-shadow 3s ;
 }
 
 .code__output-label {
