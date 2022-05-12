@@ -17,8 +17,12 @@ input.addEventListener("click", (e) => updateValue(e));
 
 function updateValue(e) {
   input.removeAttribute("style");
+  console.log(input.outerText);
+  console.log(input.innerHTML);
+  console.log(e);
+
   codeOutput.innerHTML = input.outerText;
-  hljs.highlightAll();
+
   // need 2 fix
   // if (e.inputType == "deleteContentBackward") {
   //   console.log(e.inputType)
@@ -35,6 +39,10 @@ function updateValue(e) {
   //   }
   // }
   // ----------
+  hljsCall();
+}
+function hljsCall() {
+  hljs.highlightAll();
 }
 
 hljs.highlightAll();
