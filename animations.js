@@ -9,5 +9,3 @@ function codeRunButtonsActive (element){
     element.querySelector('h2').classList.toggle('code__run-button-header--active')
 }
 
-// addEventListener("mouseenter", (e)=>{console.log(e)}, false);
-
